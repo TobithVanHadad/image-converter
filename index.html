@@ -4,13 +4,12 @@
 <head>
 
 <meta charset="UTF-8">
-
-<title>Free Image Converter</title>
+<title>Free Image Tools</title>
 
 <style>
 
 body{
-font-family: Arial;
+font-family:Arial;
 background:#f4f6f9;
 display:flex;
 justify-content:center;
@@ -24,41 +23,26 @@ padding:40px;
 border-radius:10px;
 box-shadow:0 10px 30px rgba(0,0,0,0.1);
 text-align:center;
-width:400px;
+width:500px;
 }
 
-h1{
-margin-bottom:20px;
-}
-
-input{
-margin-bottom:15px;
-}
-
-select{
-padding:8px;
-margin-bottom:15px;
-}
-
-button{
-background:#4CAF50;
-border:none;
-color:white;
-padding:12px 25px;
-font-size:16px;
-border-radius:6px;
-cursor:pointer;
-}
-
-button:hover{
-background:#45a049;
-}
-
-#download{
-display:none;
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
 margin-top:20px;
-color:#2196F3;
-font-weight:bold;
+}
+
+.tool{
+padding:15px;
+background:#4CAF50;
+color:white;
+border-radius:6px;
+text-decoration:none;
+}
+
+.tool:hover{
+background:#45a049;
 }
 
 </style>
@@ -69,72 +53,32 @@ font-weight:bold;
 
 <div class="container">
 
-<h1>Free Image Converter</h1>
+<h1>Free Image Tools</h1>
 
-<input type="file" id="upload">
+<p>Simple tools to convert and edit images online.</p>
 
-<br>
+<div class="grid">
 
-<select id="format">
-<option value="image/png">PNG</option>
-<option value="image/jpeg">JPG</option>
-<option value="image/webp">WEBP</option>
-</select>
+<a class="tool" href="convert.html">Convert Image</a>
 
-<br>
+<a class="tool" href="compress.html">Compress Image</a>
 
-<button onclick="convertImage()">Convert Image</button>
+<a class="tool" href="resize.html">Resize Image</a>
 
-<br>
+<a class="tool" href="crop.html">Crop Image</a>
 
-<a id="download">Download Image</a>
+<a class="tool" href="jpg-to-png.html">JPG to PNG</a>
+
+<a class="tool" href="png-to-jpg.html">PNG to JPG</a>
+
+<a class="tool" href="webp-to-jpg.html">WEBP to JPG</a>
+
+<a class="tool" href="jpg-to-webp.html">JPG to WEBP</a>
 
 </div>
 
-<script>
-
-function convertImage(){
-
-let file=document.getElementById("upload").files[0]
-
-if(!file){
-alert("Upload an image first")
-return
-}
-
-let format=document.getElementById("format").value
-
-let img=new Image()
-
-img.src=URL.createObjectURL(file)
-
-img.onload=function(){
-
-let canvas=document.createElement("canvas")
-
-canvas.width=img.width
-canvas.height=img.height
-
-let ctx=canvas.getContext("2d")
-
-ctx.drawImage(img,0,0)
-
-let converted=canvas.toDataURL(format)
-
-let link=document.getElementById("download")
-
-link.href=converted
-link.download="converted-image"
-link.style.display="block"
-link.innerText="Download Image"
-
-}
-
-}
-
-</script>
+</div>
 
 </body>
 
 </html>
-
