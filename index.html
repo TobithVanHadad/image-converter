@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Free Image Converter</title>
+
+<style>
+
+body{
+font-family: Arial;
+background:#f4f6f9;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.container{
+background:white;
+padding:40px;
+border-radius:10px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+text-align:center;
+width:400px;
+}
+
+h1{
+margin-bottom:20px;
+}
+
+input{
+margin-bottom:15px;
+}
+
+select{
+padding:8px;
+margin-bottom:15px;
+}
+
+button{
+background:#4CAF50;
+border:none;
+color:white;
+padding:12px 25px;
+font-size:16px;
+border-radius:6px;
+cursor:pointer;
+}
+
+button:hover{
+background:#45a049;
+}
+
+#download{
+display:none;
+margin-top:20px;
+color:#2196F3;
+font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Free Image Converter</h1>
+
+<input type="file" id="upload">
+
+<br>
+
+<select id="format">
+<option value="image/png">PNG</option>
+<option value="image/jpeg">JPG</option>
+<option value="image/webp">WEBP</option>
+</select>
+
+<br>
+
+<button onclick="convertImage()">Convert Image</button>
+
+<br>
+
+<a id="download">Download Image</a>
+
+</div>
+
+<script>
+
+function convertImage(){
+
+let file=document.getElementById("upload").files[0]
+
+if(!file){
+alert("Upload an image first")
+return
+}
+
+let format=document.getElementById("format").value
+
+let img=new Image()
+
+img.src=URL.createObjectURL(file)
+
+img.onload=function(){
+
+let canvas=document.createElement("canvas")
+
+canvas.width=img.width
+canvas.height=img.height
+
+let ctx=canvas.getContext("2d")
+
+ctx.drawImage(img,0,0)
+
+let converted=canvas.toDataURL(format)
+
+let link=document.getElementById("download")
+
+link.href=converted
+link.download="converted-image"
+link.style.display="block"
+link.innerText="Download Image"
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>
+
