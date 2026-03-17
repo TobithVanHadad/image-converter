@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Rotate Image</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Rotate Image</h1>
+
+<p>Rotate your image easily.</p>
+
+<div id="drop-area" class="upload">
+
+<p>Drag & Drop image here</p>
+
+<input type="file" id="upload">
+
+</div>
+
+<img id="preview" style="display:none;width:100%;margin-top:15px;border-radius:8px;">
+
+<br>
+
+<label>Rotation</label>
+
+<br>
+
+<select id="rotation">
+
+<option value="90">90°</option>
+<option value="180">180°</option>
+<option value="270">270°</option>
+
+</select>
+
+<br><br>
+
+<button onclick="rotateImage()">Rotate Image</button>
+
+<br>
+
+<a id="download">Download Image</a>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
