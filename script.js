@@ -217,3 +217,46 @@ link.innerText="Download Image"
 
 }
 
+function rotateImage(){
+
+if(!selectedFile){
+alert("Upload an image first")
+return
+}
+
+let rotation=document.getElementById("rotation").value
+
+let img=new Image()
+
+img.src=URL.createObjectURL(selectedFile)
+
+img.onload=function(){
+
+let canvas=document.createElement("canvas")
+let ctx=canvas.getContext("2d")
+
+if(rotation == 90 || rotation == 270){
+canvas.width = img.height
+canvas.height = img.width
+}else{
+canvas.width = img.width
+canvas.height = img.height
+}
+
+ctx.translate(canvas.width/2,canvas.height/2)
+ctx.rotate(rotation*Math.PI/180)
+
+ctx.drawImage(img,-img.width/2,-img.height/2)
+
+let rotated=canvas.toDataURL("image/jpeg")
+
+let link=document.getElementById("download")
+
+link.href=rotated
+link.download="rotated-image.jpg"
+link.style.display="block"
+link.innerText="Download Image"
+
+}
+
+}
