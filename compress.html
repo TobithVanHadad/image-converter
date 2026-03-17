@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Compress Image</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Compress Image</h1>
+
+<p>Reduce the size of your image.</p>
+
+<div class="upload">
+<input type="file" id="upload">
+</div>
+
+<select id="quality">
+<option value="0.9">High Quality</option>
+<option value="0.7">Medium Quality</option>
+<option value="0.5">Low Quality</option>
+</select>
+
+<br>
+
+<button onclick="compressImage()">Compress Image</button>
+
+<br>
+
+<a id="download">Download Image</a>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
