@@ -3,7 +3,9 @@
 <html>
 
 <head>
+
 <meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' https:;">
 <title>Rotate Image</title>
 
 <link rel="stylesheet" href="style.css">
@@ -12,11 +14,29 @@
 
 <body>
 
+<nav class="topnav">
+
+<div class="logo">ImageTools</div>
+
+<div class="menu">
+<a href="index.html">Home</a>
+<a href="convert.html">Convert</a>
+<a href="compress.html">Compress</a>
+<a href="resize.html">Resize</a>
+<a href="crop.html">Crop</a>
+<a href="rotate.html">Rotate</a>
+<a href="jpg-to-png.html">JPG→PNG</a>
+<a href="png-to-jpg.html">PNG→JPG</a>
+<a href="webp-to-jpg.html">WEBP→JPG</a>
+</div>
+
+</nav>
+
 <div class="container">
 
 <h1>Rotate Image</h1>
 
-<p>Rotate your image easily.</p>
+<p>Rotate your image interactively.</p>
 
 <div id="drop-area" class="upload">
 
@@ -26,16 +46,25 @@
 
 </div>
 
-<img id="preview" style="display:none;width:100%;margin-top:15px;border-radius:8px;">
+<img id="preview" style="display:none;width:100%;margin-top:15px;border-radius:8px;transition:0.2s;">
+
+<br><br>
+
+<label>Rotation Angle</label>
 
 <br>
 
-<label>Rotation</label>
+<input type="range" id="rotateSlider" min="0" max="360" value="0">
 
 <br>
 
-<select id="rotation">
+<span id="angleValue">0°</span>
 
+<br><br>
+
+<select id="rotationPreset" onchange="setRotationPreset()">
+
+<option value="">Quick rotation</option>
 <option value="90">90°</option>
 <option value="180">180°</option>
 <option value="270">270°</option>
@@ -44,7 +73,7 @@
 
 <br><br>
 
-<button onclick="rotateImage()">Rotate Image</button>
+<button onclick="rotateImage()">Download Rotated Image</button>
 
 <br>
 
