@@ -176,3 +176,44 @@ link.innerText="Download Image"
 }
 
 }
+
+function cropImage(){
+
+if(!selectedFile){
+alert("Upload an image first")
+return
+}
+
+let x=document.getElementById("cropX").value
+let y=document.getElementById("cropY").value
+let width=document.getElementById("cropWidth").value
+let height=document.getElementById("cropHeight").value
+
+let img=new Image()
+
+img.src=URL.createObjectURL(selectedFile)
+
+img.onload=function(){
+
+let canvas=document.createElement("canvas")
+
+canvas.width=width
+canvas.height=height
+
+let ctx=canvas.getContext("2d")
+
+ctx.drawImage(img,x,y,width,height,0,0,width,height)
+
+let cropped=canvas.toDataURL("image/jpeg")
+
+let link=document.getElementById("download")
+
+link.href=cropped
+link.download="cropped-image.jpg"
+link.style.display="block"
+link.innerText="Download Image"
+
+}
+
+}
+
