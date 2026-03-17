@@ -1,35 +1,45 @@
-function pngToJpg(){
+<!DOCTYPE html>
 
-if(!selectedFile){
-alert("Upload an image first")
-return
-}
+<html>
 
-let img=new Image()
+<head>
+<meta charset="UTF-8">
+<title>PNG to JPG</title>
 
-img.src=URL.createObjectURL(selectedFile)
+<link rel="stylesheet" href="style.css">
 
-img.onload=function(){
+</head>
 
-let canvas=document.createElement("canvas")
+<body>
 
-canvas.width=img.width
-canvas.height=img.height
+<div class="container">
 
-let ctx=canvas.getContext("2d")
+<h1>PNG to JPG</h1>
 
-ctx.drawImage(img,0,0)
+<p>Convert PNG images to JPG format.</p>
 
-let converted=canvas.toDataURL("image/jpeg",0.9)
+<div id="drop-area" class="upload">
 
-let link=document.getElementById("download")
+<p>Drag & Drop PNG image here</p>
 
-link.href=converted
-link.download="converted-image.jpg"
-link.style.display="block"
-link.innerText="Download JPG"
+<input type="file" id="upload">
 
-}
+</div>
 
-}
+<img id="preview" style="display:none;width:100%;margin-top:15px;border-radius:8px;">
 
+<br>
+
+<button onclick="pngToJpg()">Convert to JPG</button>
+
+<br>
+
+<a id="download">Download JPG</a>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
