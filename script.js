@@ -379,3 +379,76 @@ link.innerText = "Download Cropped Image"
 
 }
 
+let rotateSlider = document.getElementById("rotateSlider")
+let previewImage = document.getElementById("preview")
+let angleValue = document.getElementById("angleValue")
+
+if(rotateSlider){
+
+rotateSlider.addEventListener("input", function(){
+
+let angle = rotateSlider.value
+
+previewImage.style.transform = "rotate(" + angle + "deg)"
+
+angleValue.innerText = angle + "°"
+
+})
+
+}
+
+function setRotationPreset(){
+
+let preset = document.getElementById("rotationPreset").value
+
+if(!preset) return
+
+rotateSlider.value = preset
+
+previewImage.style.transform = "rotate(" + preset + "deg)"
+
+angleValue.innerText = preset + "°"
+
+}
+
+function rotateImage(){
+
+if(!selectedFile){
+alert("Upload an image first")
+return
+}
+
+let angle = rotateSlider.value
+
+let img = new Image()
+
+img.src = URL.createObjectURL(selectedFile)
+
+img.onload = function(){
+
+let canvas = document.createElement("canvas")
+let ctx = canvas.getContext("2d")
+
+let radians = angle * Math.PI / 180
+
+canvas.width = img.width
+canvas.height = img.height
+
+ctx.translate(canvas.width/2,canvas.height/2)
+ctx.rotate(radians)
+
+ctx.drawImage(img,-img.width/2,-img.height/2)
+
+let rotated = canvas.toDataURL("image/jpeg")
+
+let link = document.getElementById("download")
+
+link.href = rotated
+link.download = "rotated-image.jpg"
+link.style.display = "block"
+link.innerText = "Download Rotated Image"
+
+}
+
+}
+
