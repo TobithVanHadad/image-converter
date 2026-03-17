@@ -331,3 +331,51 @@ link.innerText="Download JPG"
 
 }
 
+let cropper
+let image = document.getElementById("image")
+let upload = document.getElementById("upload")
+
+upload.addEventListener("change", function(e){
+
+let file = e.target.files[0]
+
+if(!file.type.startsWith("image/")){
+alert("Please upload an image")
+return
+}
+
+let url = URL.createObjectURL(file)
+
+image.src = url
+image.style.display = "block"
+
+if(cropper){
+cropper.destroy()
+}
+
+cropper = new Cropper(image,{
+viewMode:1,
+dragMode:"move",
+autoCropArea:0.8,
+})
+
+})
+
+function cropImage(){
+
+if(!cropper){
+alert("Upload an image first")
+return
+}
+
+let canvas = cropper.getCroppedCanvas()
+
+let link = document.getElementById("download")
+
+link.href = canvas.toDataURL("image/jpeg")
+link.download = "cropped-image.jpg"
+link.style.display = "block"
+link.innerText = "Download Cropped Image"
+
+}
+
