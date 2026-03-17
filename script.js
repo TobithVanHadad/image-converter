@@ -296,4 +296,38 @@ link.innerText="Download JPG"
 
 }
 
+function webpToJpg(){
+
+if(!selectedFile){
+alert("Upload an image first")
+return
+}
+
+let img=new Image()
+
+img.src=URL.createObjectURL(selectedFile)
+
+img.onload=function(){
+
+let canvas=document.createElement("canvas")
+
+canvas.width=img.width
+canvas.height=img.height
+
+let ctx=canvas.getContext("2d")
+
+ctx.drawImage(img,0,0)
+
+let converted=canvas.toDataURL("image/jpeg",0.9)
+
+let link=document.getElementById("download")
+
+link.href=converted
+link.download="converted-image.jpg"
+link.style.display="block"
+link.innerText="Download JPG"
+
+}
+
+}
 
