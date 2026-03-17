@@ -9,9 +9,10 @@
 <style>
 
 body{
+margin:0;
 font-family:Arial;
-background:#111827;
-color:white;
+background:#0f172a;
+color:#f8fafc;
 display:flex;
 justify-content:center;
 align-items:center;
@@ -19,25 +20,61 @@ height:100vh;
 }
 
 .container{
-background:#1f2937;
+background:#1e293b;
 padding:40px;
-border-radius:10px;
+border-radius:12px;
+width:420px;
 text-align:center;
-width:400px;
+box-shadow:0 20px 40px rgba(0,0,0,0.4);
+}
+
+h1{
+margin-bottom:10px;
+}
+
+p{
+color:#94a3b8;
+margin-bottom:20px;
+}
+
+.upload{
+border:2px dashed #475569;
+padding:30px;
+border-radius:10px;
+margin-bottom:20px;
+cursor:pointer;
+}
+
+.upload:hover{
+border-color:#6366f1;
+}
+
+select{
+padding:10px;
+border-radius:6px;
+border:none;
+margin-bottom:20px;
 }
 
 button{
 background:#6366f1;
 border:none;
-padding:12px 25px;
+padding:14px 28px;
+border-radius:8px;
 color:white;
-border-radius:6px;
+font-size:16px;
 cursor:pointer;
-margin-top:10px;
 }
 
 button:hover{
 background:#4f46e5;
+}
+
+#download{
+display:none;
+margin-top:20px;
+color:#22c55e;
+font-weight:bold;
 }
 
 </style>
@@ -48,11 +85,13 @@ background:#4f46e5;
 
 <div class="container">
 
-<h2>Convert Image</h2>
+<h1>Convert Image</h1>
 
+<p>Convert your images to PNG, JPG or WEBP.</p>
+
+<div class="upload">
 <input type="file" id="upload">
-
-<br>
+</div>
 
 <select id="format">
 
@@ -64,11 +103,11 @@ background:#4f46e5;
 
 <br>
 
-<button onclick="convertImage()">Convert</button>
+<button onclick="convertImage()">Convert Image</button>
 
-<br><br>
+<br>
 
-<a id="download" style="display:none;color:#60a5fa">Download</a>
+<a id="download">Download Image</a>
 
 </div>
 
