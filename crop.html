@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Crop Image</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Crop Image</h1>
+
+<p>Crop a specific area of your image.</p>
+
+<div id="drop-area" class="upload">
+
+<p>Drag & Drop image here</p>
+
+<input type="file" id="upload">
+
+</div>
+
+<img id="preview" style="display:none;width:100%;margin-top:15px;border-radius:8px;">
+
+<br>
+
+<label>X position</label> <br> <input id="cropX" type="number" placeholder="0">
+
+<br><br>
+
+<label>Y position</label> <br> <input id="cropY" type="number" placeholder="0">
+
+<br><br>
+
+<label>Width</label> <br> <input id="cropWidth" type="number" placeholder="200">
+
+<br><br>
+
+<label>Height</label> <br> <input id="cropHeight" type="number" placeholder="200">
+
+<br><br>
+
+<button onclick="cropImage()">Crop Image</button>
+
+<br>
+
+<a id="download">Download Image</a>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
