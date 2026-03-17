@@ -1,13 +1,48 @@
 body{
 margin:0;
-font-family:Arial;
+font-family:Arial, sans-serif;
 background:#0f172a;
 color:#f8fafc;
 display:flex;
 justify-content:center;
 align-items:center;
-height:100vh;
+min-height:100vh;
 }
+
+/* NAVBAR */
+
+.topnav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:#020617;
+padding:15px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 5px 20px rgba(0,0,0,0.4);
+z-index:999;
+}
+
+.logo{
+font-weight:bold;
+font-size:18px;
+color:#6366f1;
+}
+
+.menu a{
+color:#cbd5f5;
+margin-left:20px;
+text-decoration:none;
+font-size:14px;
+}
+
+.menu a:hover{
+color:white;
+}
+
+/* CONTAINER */
 
 .container{
 background:#1e293b;
@@ -16,7 +51,10 @@ border-radius:12px;
 width:420px;
 text-align:center;
 box-shadow:0 20px 40px rgba(0,0,0,0.4);
+margin-top:90px;
 }
+
+/* TEXT */
 
 h1{
 margin-bottom:10px;
@@ -26,6 +64,8 @@ p{
 color:#94a3b8;
 margin-bottom:20px;
 }
+
+/* UPLOAD AREA */
 
 .upload{
 border:2px dashed #475569;
@@ -39,12 +79,16 @@ cursor:pointer;
 border-color:#6366f1;
 }
 
+/* SELECT */
+
 select{
 padding:10px;
 border-radius:6px;
 border:none;
 margin-bottom:20px;
 }
+
+/* BUTTON */
 
 button{
 background:#6366f1;
@@ -59,6 +103,8 @@ cursor:pointer;
 button:hover{
 background:#4f46e5;
 }
+
+/* DOWNLOAD LINK */
 
 #download{
 display:none;
