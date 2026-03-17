@@ -1,15 +1,36 @@
 <!DOCTYPE html>
+
 <html>
 
 <head>
 <meta charset="UTF-8">
 <title>Compress Image</title>
 
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' https:;">
+
 <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
+
+<nav class="topnav">
+
+<div class="logo">ImageTools</div>
+
+<div class="menu">
+<a href="index.html">Home</a>
+<a href="convert.html">Convert</a>
+<a href="compress.html">Compress</a>
+<a href="resize.html">Resize</a>
+<a href="crop.html">Crop</a>
+<a href="rotate.html">Rotate</a>
+<a href="jpg-to-png.html">JPG→PNG</a>
+<a href="png-to-jpg.html">PNG→JPG</a>
+<a href="webp-to-jpg.html">WEBP→JPG</a>
+</div>
+
+</nav>
 
 <div class="container">
 
@@ -26,7 +47,8 @@
 </div>
 
 <img id="preview" style="display:none;width:100%;margin-top:15px;border-radius:8px;">
-  
+
+<br>
 
 <select id="quality">
 <option value="0.9">High Quality</option>
@@ -34,17 +56,18 @@
 <option value="0.5">Low Quality</option>
 </select>
 
-<br>
+<br><br>
 
 <button onclick="compressImage()">Compress Image</button>
 
-<br>
+<br><br>
 
-<a id="download">Download Image</a>
+<a id="download" style="display:none">Download Compressed Image</a>
 
 </div>
 
 <script src="script.js"></script>
 
 </body>
+
 </html>
