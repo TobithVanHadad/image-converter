@@ -1,79 +1,81 @@
 <!DOCTYPE html>
+
 <html>
 
 <head>
 
 <meta charset="UTF-8">
-<title>Free Image Tools</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' https:;">
+<title>ImageTools - Free Online Image Tools</title>
 
-<style>
-
-body{
-font-family:Arial;
-background:#f4f6f9;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
-}
-
-.container{
-background:white;
-padding:40px;
-border-radius:10px;
-box-shadow:0 10px 30px rgba(0,0,0,0.1);
-text-align:center;
-width:500px;
-}
-
-.grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:15px;
-margin-top:20px;
-}
-
-.tool{
-padding:15px;
-background:#4CAF50;
-color:white;
-border-radius:6px;
-text-decoration:none;
-}
-
-.tool:hover{
-background:#45a049;
-}
-
-</style>
+<link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-<div class="container">
+<nav class="topnav">
 
-<h1>Free Image Tools</h1>
+<div class="logo">ImageTools</div>
 
-<p>Simple tools to convert and edit images online.</p>
+<div class="menu">
+<a href="index.html">Home</a>
+<a href="convert.html">Convert</a>
+<a href="compress.html">Compress</a>
+<a href="resize.html">Resize</a>
+<a href="crop.html">Crop</a>
+<a href="rotate.html">Rotate</a>
+</div>
 
-<div class="grid">
+</nav>
 
-<a class="tool" href="convert.html">Convert Image</a>
+<div class="home">
 
-<a class="tool" href="compress.html">Compress Image</a>
+<h1>Free Online Image Tools</h1>
 
-<a class="tool" href="resize.html">Resize Image</a>
+<p>Convert, compress, resize and edit your images easily.</p>
 
-<a class="tool" href="crop.html">Crop Image</a>
+<div class="tools-grid">
 
-<a class="tool" href="jpg-to-png.html">JPG to PNG</a>
+<a href="convert.html" class="tool-card">
+<h3>Convert Image</h3>
+<p>Convert images to PNG, JPG or WEBP.</p>
+</a>
 
-<a class="tool" href="png-to-jpg.html">PNG to JPG</a>
+<a href="compress.html" class="tool-card">
+<h3>Compress Image</h3>
+<p>Reduce image file size.</p>
+</a>
 
-<a class="tool" href="webp-to-jpg.html">WEBP to JPG</a>
+<a href="resize.html" class="tool-card">
+<h3>Resize Image</h3>
+<p>Change width and height.</p>
+</a>
 
-<a class="tool" href="jpg-to-webp.html">JPG to WEBP</a>
+<a href="crop.html" class="tool-card">
+<h3>Crop Image</h3>
+<p>Select and crop image area.</p>
+</a>
+
+<a href="rotate.html" class="tool-card">
+<h3>Rotate Image</h3>
+<p>Rotate image up to 360°.</p>
+</a>
+
+<a href="jpg-to-png.html" class="tool-card">
+<h3>JPG → PNG</h3>
+<p>Convert JPG to PNG format.</p>
+</a>
+
+<a href="png-to-jpg.html" class="tool-card">
+<h3>PNG → JPG</h3>
+<p>Convert PNG to JPG format.</p>
+</a>
+
+<a href="webp-to-jpg.html" class="tool-card">
+<h3>WEBP → JPG</h3>
+<p>Convert WEBP to JPG.</p>
+</a>
 
 </div>
 
